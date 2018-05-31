@@ -1,0 +1,4 @@
+2017-02-15 13:54:31,722 INFO host: gale-cluster-10.salk.edu
+2017-02-15 13:54:31,723 INFO cwd: /gale/netapp/home/shhuang/devel/lib/python/utils
+2017-02-15 13:54:31,723 INFO command: /gale/netapp/home/shhuang/devel/lib/python/utils/add_meth_level_nsite.py /gale/netapp/home/shhuang/data/unmCpG/Athaliana/average.intensity.bed test3 /gale/netapp/seq3/illumina_runs/taiji/1001/allc/ 6909_pub CG
+2017-02-15 13:54:54,032 INFO Done!
