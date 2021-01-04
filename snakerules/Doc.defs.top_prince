@@ -1,0 +1,204 @@
+### COMMON VARIABLE EXPRESSIONS ###
+SHELL = "/bin/bash"
+ARCH =  shell("uname -m")
+RMF   = "/bin/rm -f"
+RM    = "/bin/rm"
+MV    = "/bin/mv"
+TOUCH = "/bin/touch"
+R_CMD_BATCH = "R CMD BATCH --no-save --args"
+R_CMD_BATCH2 = "R CMD BATCH --no-save --slave"
+SCP = "/usr/bin/scp"
+SCPB = "/usr/bin/scp -B"
+
+#############################
+# User defined variables
+#############################
+
+# directory where all the data are stored
+MODULE_SH = "/etc/profile.d/modules.sh"
+
+HOME = os.environ.get("HOME","")
+THUMPER1_HOME = os.environ.get("THUMPER1_HOME","")
+THUMPER4_HOME = os.environ.get("THUMPER4_HOME","")
+THUMPER3 = os.environ.get("THUMPER3","")
+OBERON_DATA = os.environ.get("OBERON_DATA")
+GALE_HOME = os.environ.get("GALE_HOME","")
+OBERON_DATA1_HOME = "/mnt/oberon_data1/shhuang"
+
+DATA_PATH = THUMPER1_HOME + "/data"
+DATA_PATH_LOCAL = HOME + "/data"
+DATA_PATH_GALE = GALE_HOME + "/data"
+APPDATA_PATH_GALE = DATA_PATH_GALE + '/application_files'
+
+SRA_FQ_PATH_GALE = DATA_PATH_GALE + "/sra/reads/fastq"
+GEO_PATH_GALE = DATA_PATH_GALE + "/geo"
+
+# directory where all the code are stored
+DEVEL_PATH = THUMPER1_HOME + "/devel"
+DEVEL_PATH_GALE = GALE_HOME + "/devel"
+LIB_PATH = DEVEL_PATH + "/lib"
+LIB_PATH_GALE = DEVEL_PATH_GALE + '/lib'
+PACKAGES_PATH = os.environ.get("PACKAGES_PATH","")
+PACKAGES_PATH_GALE = GALE_HOME + "/packages"
+SCRATCHSPACE_PATH = DEVEL_PATH + "/scratchspace"
+
+# directory where the results are stored
+RESULTS_PATH = THUMPER1_HOME + "/projects"
+RESULTS_PATH_LOCAL = HOME + "/projects"
+RESULTS_PATH_GALE = GALE_HOME + "/projects"
+
+# project specific paths
+PROJ_DATA_PATH = DATA_PATH + "/" + PROJ_NAME
+PROJ_DATA_PATH_LOCAL = DATA_PATH_LOCAL + "/" + PROJ_NAME
+PROJ_DATA_PATH_GALE = DATA_PATH_GALE + "/" + PROJ_NAME
+PROJ_DEVEL_PATH = DEVEL_PATH + "/" + PROJ_NAME
+PROJ_DEVEL_PATH_GALE = DEVEL_PATH_GALE + "/" + PROJ_NAME
+PROJ_PYTHON_PATH = PROJ_DEVEL_PATH + "/python"
+PROJ_PYTHON_PATH_GALE = PROJ_DEVEL_PATH_GALE + "/python"
+PROJ_RESULTS_PATH = RESULTS_PATH + "/" + PROJ_NAME
+PROJ_RESULTS_PATH_LOCAL = RESULTS_PATH_LOCAL + "/" + PROJ_NAME
+PROJ_RESULTS_PATH_GALE = RESULTS_PATH_GALE + "/" + PROJ_NAME
+
+# programming language specific code
+PACKAGES_PYTHON_PATH = PACKAGES_PATH_GALE + '/python'
+LIB_PYTHON_PATH = LIB_PATH_GALE + '/python'
+LIB_PYTHON_UTILS_PATH = LIB_PYTHON_PATH + '/utils'
+LIB_PYTHON_SHARED_PATH = LIB_PYTHON_PATH + '/shared'
+
+# genomes
+GENOMES_LOCAL_PATH = DATA_PATH_GALE + "/genomes"
+GENOMES_LOCAL_TAIR10 = GENOMES_LOCAL_PATH + "/TAIR10"
+GENOMES_GP_HG19 = DATA_PATH_GALE + "/goldenPath/hg19"
+GENOMES_GP_HG19_DB = GENOMES_GP_HG19 + '/database'
+GENOMES_GP_HG19_ENC = GENOMES_GP_HG19 + '/encodeDCC'
+HG19_wgEncodeRegTfbsClustered = GENOMES_GP_HG19_ENC + '/wgEncodeRegTfbsClustered'
+GENOMES_TAIR10_WHOLE_CHR = GENOMES_LOCAL_TAIR10 + "/Sequences/whole_chromosomes"
+GENOMES_TAIR10_GENES_TRANSPOSONS_GFF_CHR_FIXED2 = GENOMES_LOCAL_TAIR10 + "/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes_transposons.fixed2.chr.gff"
+GENOMES_TAIR10_GSIZE = 1.19e8
+GENOMES_TAIR10_CHROM_SIZES = GENOMES_LOCAL_TAIR10 + "/Sequences/tair10.chrom.sizes"
+GENOMES_TAIR10_SEQ_FAS = GENOMES_LOCAL_TAIR10 + "/Sequences/whole_chromosomes/col0_tair10_chr.fas"
+GENOMES_TAIR10_SEQ_FASTA = GENOMES_LOCAL_TAIR10 + "/Sequences/whole_chromosomes/col0_tair10_chr.fasta"
+GENOMES_TAIR10_MEME_MARKOV0 = GENOMES_LOCAL_TAIR10 + "/Sequences/whole_chromosomes/col0_tair10_chr.meme_markov0"
+GENOMES_TAIR10_MAP_UNIQ100 = GENOMES_LOCAL_TAIR10 + "/Sequences/whole_chromosomes/gem_mappability/col0_tair10_chr_100_uniq.bed"
+
+GENOMES_LOCAL_ZMRONAN = GENOMES_LOCAL_PATH + "/Zm_ronan"
+GENOMES_ZMRONAN_WHOLE_CHR = GENOMES_LOCAL_ZMRONAN + "/Sequences/whole_chromosomes"
+GENOMES_ZMRONAN_CHROM_SIZES = GENOMES_LOCAL_ZMRONAN + "/Sequences/zmronan.chrom.sizes"
+
+GENOMES_ENSEMBLPLANTS_R20 = GENOMES_LOCAL_PATH + '/EnsemblPlants/release20'
+GENOMES_TAIR10_ENS20_GENES_CHR1to5 = GENOMES_ENSEMBLPLANTS_R20 + '/Genes.arabidopsis.TAIR10_ENS20_nochrMC.bed'
+GENOMES_ENSEMBLPLANTS_R25 = GENOMES_LOCAL_PATH + '/EnsemblPlants/release25'
+GENOMES_TAIR10_ENS25_TSS = GENOMES_ENSEMBLPLANTS_R25 + '/TSS.arabidopsis.TAIR10_ENS25.bed'
+
+# GEM 
+GEM_INSTALL_PATH = PACKAGES_PATH + "/gem"
+GEM_2p3_INSTALL_PATH = GEM_INSTALL_PATH + "/gem-2.3"
+GEM_2p3_DEFAULT_READ_DISTR = GEM_2p3_INSTALL_PATH + "/Read_Distribution_default.txt"
+GEM_2p3_JAR = GEM_2p3_INSTALL_PATH + "/gem.jar"
+GEM_2p5_INSTALL_PATH = GEM_INSTALL_PATH + "/gem-2.5"
+GEM_2p5_DEFAULT_READ_DISTR = GEM_2p5_INSTALL_PATH + "/Read_Distribution_default.txt"
+GEM_2p5_JAR = GEM_2p5_INSTALL_PATH + "/gem.jar"
+
+# PICARD 
+PICARD_INSTALL_PATH = PACKAGES_PATH + "/java/java-packages/java18/picard"
+PICARD_2p8_INSTALL_PATH = PICARD_INSTALL_PATH + "/picard-2.8.3"
+PICARD_2p8_JAR = PICARD_2p8_INSTALL_PATH + "/picard.jar"
+
+# GATK 
+GATK_INSTALL_PATH = PACKAGES_PATH + "/java/java-packages/java18/GenomeAnalysisTK"
+GATK_3p7_INSTALL_PATH = GATK_INSTALL_PATH + "/GenomeAnalysisTK-3.7"
+GATK_3p7_JAR = GATK_3p7_INSTALL_PATH + "/GenomeAnalysisTK.jar"
+
+# AnnoJ
+AJ2_ARAB_MC = "/mnt/thumper-e2/home/data/shhuang/arab/mC"
+AJ2_MM10_CHIP = "/mnt/thumper-e2/home/data/shhuang/mm10/ChIP"
+AJ2_MM10_CHIPMC = "/mnt/thumper-e2/home/data/shhuang/mm10/ChIPmC"
+
+# PBM data
+PBM_DATA_PATH = DATA_PATH + '/pbm'
+ATH_ALL_MATRICES_0p80_MEME = PBM_DATA_PATH + '/v0.80/Arabidopsis_thaliana_2013_09_04_7-36_pm/processed_ssh/meme/Ath_matrices_all_0.80.meme'
+ATH_ALL_MATRICES_1p02_MEME = PBM_DATA_PATH + '/v1.02/Arabidopsis_thaliana_2015_04_30_7-12_pm/processed_ssh/meme/Ath_matrices_all_1.02.meme'
+SOLANO_ALL_MATRICES_MEME = DATA_PATH + '/arabidopsis/Franco_PNAS2014_PlantPBM/TableS2_full.meme'
+
+# CGAT
+GENOMES_LOCAL_CGAT = GENOMES_LOCAL_PATH + '/cgat_dat'
+GENOMES_TAIR10_CGAT_DIR = GENOMES_LOCAL_CGAT + '/col0_tair10_chr'
+CGAT_FASTA_TAIR10 = GENOMES_TAIR10_CGAT_DIR + '/col0_tair10_chr'
+CGAT_UNGAPPED50_TAIR10 = GENOMES_TAIR10_CGAT_DIR + '/ungapped50.col0_tair10_chr.bed.gz'
+CGAT_ANNOT_TAIR10_GENOME_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_genome.gff.gz'
+CGAT_ANNOT_TAIR10_GENOME_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_genome.bed.gz'
+CGAT_ANNOT_TAIR10_PROM1_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_prom1.gff.gz'#1kb upstream of TSS
+CGAT_ANNOT_TAIR10_PROM1_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_prom1.bed.gz'
+CGAT_ANNOT_TAIR10_PROM2_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_noncodev5_prom1.gff.gz'#1kb of TSS, lncRNA
+CGAT_ANNOT_TAIR10_PROM2_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_noncodev5_prom1.bed.gz'
+CGAT_ANNOT_TAIR10_REG1_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_reg1.gff.gz'#-1000,+200bp of TSS
+CGAT_ANNOT_TAIR10_REG1_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_ens26_reg1.bed.gz'
+CGAT_ANNOT_TAIR10_REG2_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_noncodev5_reg1.gff.gz'#-1000,+200bp of TSS, lncRNA
+CGAT_ANNOT_TAIR10_REG2_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_noncodev5_reg1.bed.gz'
+CGAT_ANNOT_TAIR10_MR1_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.col0_mcblocks1.gff.gz'#Col-0 mc blocks
+CGAT_ANNOT_TAIR10_MR1_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.col0_mcblocks1.bed.gz'
+CGAT_ANNOT_TAIR10_MR2_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.col0_mcblocks2.gff.gz'#Col-0 mc blocks, using Bob's data and separate into gene body and RDDM methylation
+CGAT_ANNOT_TAIR10_MR2_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.col0_mcblocks2.bed.gz'
+CGAT_ANNOT_TAIR10_CNS1_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.crucifer_cns1.gff.gz'# Blanchette Nat Genet 2013 Crucifer CNS
+CGAT_ANNOT_TAIR10_CNS1_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.crucifer_cns1.bed.gz'
+CGAT_ANNOT_TAIR10_TE_BUISINE_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_buisine.gff.gz'
+CGAT_ANNOT_TAIR10_TE_BUISINE_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_buisine.bed.gz'
+CGAT_ANNOT_TAIR10_TE_REF_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_reference.gff.gz'
+CGAT_ANNOT_TAIR10_TE_REF_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_reference.bed.gz'
+CGAT_ANNOT_TAIR10_TE_BUNDCOM_GFF = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_bundcomplete.gff.gz'
+CGAT_ANNOT_TAIR10_TE_BUNDCOM_BED = GENOMES_TAIR10_CGAT_DIR + '/annotations.tair10_TE_bundcomplete.bed.gz'
+
+# Noncode
+NONCODE_DATA_PATH = DATA_PATH + '/noncode'
+
+# DAP
+DAP_RESULTS_PATH = RESULTS_PATH + '/dap'
+DAP_RESULTS_PATH_GALE = RESULTS_PATH_GALE + '/dap'
+DAP_DISTR_PATH = DAP_RESULTS_PATH_GALE + '/analysis.v4/dap_distr'
+DAP_FAMCLUST_01 = DAP_RESULTS_PATH_GALE + '/analysis.v4/family_cluster_01'
+DAP_FAMCLUST_MASTER_PMOTIF_BED4 = DAP_FAMCLUST_01 + '/master/chr1-5_GEM_events.narrowPeak.fimo0_1e-4.bed4'# chr1, chr2, etc
+DAP_FAMCLUST_MASTER_PMOTIF_BED5 = DAP_FAMCLUST_01 + '/master/chr1-5_GEM_events.narrowPeak.fimo0_1e-4.bed5'# 1, 2, 3 etc
+
+# SnpEff
+SNPEFF_INSTALL_PATH = PACKAGES_PATH + "/SnpEff"
+SNPEFF_4p1L_INSTALL_PATH = SNPEFF_INSTALL_PATH + "/SnpEff-4.1L"
+SNPEFF_4p1L_JAR = SNPEFF_4p1L_INSTALL_PATH + '/snpEff.jar'
+SNPSIFT_4p1L_JAR = SNPEFF_4p1L_INSTALL_PATH + '/SnpSift.jar'
+SNPEFF_4p1L_CONFIG = SNPEFF_4p1L_INSTALL_PATH + '/snpEff.config'
+SNPEFF_4p1L_SCRIPTS = SNPEFF_4p1L_INSTALL_PATH + '/scripts'
+
+# Python virtualenv
+PYTHON_VENV_PATH = THUMPER4_HOME + '/python-venv'
+VENV_CGAT_PY27 = PYTHON_VENV_PATH + '/cgat_py2.7'
+VENV_CGAT_PY27_ACTIVATE = 'source '+VENV_CGAT_PY27+'/bin/activate'
+VENV_CGAT_PY27_LOADDEP = 'source /etc/profile.d/modules.sh; module load python_modonly/2.7.3; module load PyYAML/3.10 numpy/1.7.0 scipy/0.12.0 pandas/0.13.1 MySQL-python/1.2.4b4 matplotlib/1.4.3 Sphinx/1.2.3 biopython/1.61 r/3.2.0 xlwt/0.7.5 matplotlib_venn/0.10 samtools/0.1.18 htslib/1.2.1 brewer2mpl/1.4 rpy2/2.5.6'
+CGAT_SCRIPTS_PATH = VENV_CGAT_PY27 + '/lib/python2.7/site-packages/CGATScripts'
+
+MCONDA3_ENVS_PATH = PACKAGES_PATH_GALE + '/mconda3/mconda3-405/envs'
+VENV_AQUAS_CHIPSEQ = MCONDA3_ENVS_PATH + '/aquas_chipseq'
+VENV_AQUAS_CHIPSEQ_ACTIVATE = VENV_AQUAS_CHIPSEQ + '/bin/activate'
+
+# bowtie2
+BOWTIE2_INSTALL_PATH = PACKAGES_PATH + '/bowtie2'
+BOWTIE2_v2p2p9_INSTALL_PATH = BOWTIE2_INSTALL_PATH + '/bowtie2-2.2.9'
+BOWTIE2_v2p2p9_BIN = BOWTIE2_v2p2p9_INSTALL_PATH +'/bowtie'
+BOWTIE2_v2p2p9_SCRIPTS_PATH = BOWTIE2_v2p2p9_INSTALL_PATH + '/scripts'
+BOWTIE2_v2p2p9_INDEXES_PATH = BOWTIE2_v2p2p9_INSTALL_PATH + '/indexes'
+
+# MEME
+MEME_INSTALL_PATH = PACKAGES_PATH_GALE + 'meme'
+MEME_v4p11p2_INSTALL_PATH = MEME_INSTALL_PATH + '/meme-4.11.2'
+MEME_v4p11p2_DNA_MOD1_ALPH = APPDATA_PATH_GALE + '/meme-4.11.2/dna_mod1.alph'
+
+# ENCODE data
+ENC_DATA_PATH = DATA_PATH_GALE + '/encodeproject.org'
+ENC_RESULTS_PATH = RESULTS_PATH_GALE + '/encodeproject.org'
+ENC_DCC_HG19_PATH = DATA_PATH_GALE + '/goldenPath/hg19/encodeDCC'
+
+# Methylomes
+HS_METH_PATH = DATA_PATH_GALE + '/human/methylcseq'
+HS_H1_ALLC = HS_METH_PATH + '/H1/allc'
+HS_H1_MODFAS = HS_METH_PATH + '/H1/mod_fasta'
+AT1001_DATA_PATH = DATA_PATH_GALE + '/1001_genomes'
+AT1001_ALLC = AT1001_DATA_PATH + '/allc'
+AT1001_MODFAS = AT1001_DATA_PATH + '/mod_fasta'
